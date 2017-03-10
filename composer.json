@@ -1,0 +1,23 @@
+{
+  "name": "miaoxing/wechat-voice",
+  "description": "Miaoxing Wechat Voice Plugin",
+  "keywords": [
+    "miaoxing", "wechat", "voice"
+  ],
+  "license": "MIT",
+  "require": {
+    "miaoxing/app": "dev-master@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Miaoxing\\WechatVoice\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MiaoxingTest\\WechatVoice\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

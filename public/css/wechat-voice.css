@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'voice-iconfont';
+  src: url('//at.alicdn.com/t/font_1473250561_1627147.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1473250561_1627147.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_1473250561_1627147.woff') format('woff'), url('//at.alicdn.com/t/font_1473250561_1627147.ttf') format('truetype'), url('//at.alicdn.com/t/font_1473250561_1627147.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.v-f-icon {
+  font-family: "voice-iconfont";
+  font-size: 18px;
+  font-style: normal;
+}
+
+.wx-upload-voice {
+  width: 100%;
+  float: left;
+}
+
+/* 允许在表单中显示上传框 */
+.form-group .wx-upload-voice {
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.wx-upload-voice-header {
+  margin-bottom: 8px;
+}
+
+.wx-upload-voice-body {
+  width: 100%;
+  margin-left: 25px;
+}
+
+.jp-audio-stream.voice-record {
+  border: 0;
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 5px 10px 5px 0px;
+  display: inline-block;
+}
+
+.delete-voice {
+  position: relative;
+  left: 70px;
+  top: -98px;
+  color: red;
+  font-size: 20px;
+}
+
+.start-voice-record {
+  width: 80px;
+  height: 80px;
+}
+
+.start-record-icon {
+  color: #d9d9d9;
+  font-size: 80px;
+  line-height: 90px;
+  float: left;
+  margin: 5px 10px 10px 0px;
+}
+
+.wx-upload-voice-help {
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 5px;
+  float: left;
+}
