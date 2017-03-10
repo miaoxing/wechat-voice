@@ -6,30 +6,31 @@ class WechatVoice extends \miaoxing\plugin\BaseController
 {
     public function getWechatVoiceAction($req)
     {
-        $validator = wei()->validate(array(
+        $validator = wei()->validate([
             // 待验证的数据
             'data' => [
-                'serverId' => $req['serverId']
+                'serverId' => $req['serverId'],
             ],
             // 验证规则数组
-            'rules' => array(
+            'rules' => [
                 'serverId' => [
-                    'required' => true
+                    'required' => true,
                 ],
-            ),
+            ],
             // 数据项名称的数组,用于错误信息提示
-            'names' => array(
-                'serverId' => '服务Id'
-            ),
+            'names' => [
+                'serverId' => '服务Id',
+            ],
             'messages' => [
                 'serverId' => [
                     'required' => '请输入服务Id',
-                ]
-            ]
-        ));
+                ],
+            ],
+        ]);
         if (!$validator->isValid()) {
             $firstMessage = $validator->getFirstMessage();
-            return json_encode(array("code" => -7, "message" => $firstMessage));
+
+            return json_encode(['code' => -7, 'message' => $firstMessage]);
         }
 
         $account = wei()->wechatAccount->getCurrentAccount();
@@ -59,7 +60,7 @@ class WechatVoice extends \miaoxing\plugin\BaseController
 
     public function testAction($req)
     {
-        $url = "http://file.api.weixin.qq.com/cgi-bin/media/get?media_id=8camm2I-zFlqLZVqa_Yzw8hLzEsR59PVklY-46acre0zoFjoQwybINYsSnS-ZQYR&access_token=0nRXaB2bjjyCQM5J8TZYktaaz6KrPX211QBUB9F_dSnvDeIs1ybuNEZCKNigIer9RDFGSU-NvLovAl2uehN2KRoZyGjY_M2E25NuiPqLvrrvLsbivYp3SeNNcVHDcz6cPFGeABAZPQ";
+        $url = 'http://file.api.weixin.qq.com/cgi-bin/media/get?media_id=8camm2I-zFlqLZVqa_Yzw8hLzEsR59PVklY-46acre0zoFjoQwybINYsSnS-ZQYR&access_token=0nRXaB2bjjyCQM5J8TZYktaaz6KrPX211QBUB9F_dSnvDeIs1ybuNEZCKNigIer9RDFGSU-NvLovAl2uehN2KRoZyGjY_M2E25NuiPqLvrrvLsbivYp3SeNNcVHDcz6cPFGeABAZPQ';
 
         // 如果指定的文件上传服务存在,使用相应服务上传
         $fileService = null;
