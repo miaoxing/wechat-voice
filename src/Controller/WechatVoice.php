@@ -2,7 +2,7 @@
 
 namespace Miaoxing\WechatVoice\Controller;
 
-class WechatVoice extends \miaoxing\plugin\BaseController
+class WechatVoice extends \Miaoxing\Plugin\BaseController
 {
     public function getWechatVoiceAction($req)
     {
