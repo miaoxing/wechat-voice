@@ -57,29 +57,4 @@ class WechatVoice extends \Miaoxing\Plugin\BaseController
 
         return $this->ret($ret);
     }
-
-    public function testAction($req)
-    {
-        $url = 'http://file.api.weixin.qq.com/cgi-bin/media/get?media_id=8camm2I-zFlqLZVqa_Yzw8hLzEsR59PVklY-46acre0zoFjoQwybINYsSnS-ZQYR&access_token=0nRXaB2bjjyCQM5J8TZYktaaz6KrPX211QBUB9F_dSnvDeIs1ybuNEZCKNigIer9RDFGSU-NvLovAl2uehN2KRoZyGjY_M2E25NuiPqLvrrvLsbivYp3SeNNcVHDcz6cPFGeABAZPQ';
-
-        // 如果指定的文件上传服务存在,使用相应服务上传
-        $fileService = null;
-        if ($req['fileService']) {
-            $serviceName = $req['fileService'] . '.file';
-            if ($this->wei->getConfig($serviceName) !== false) {
-                $fileService = $this->wei->get($serviceName);
-            }
-        }
-
-        if (!$fileService) {
-            $fileService = wei()->file;
-        }
-
-        $ret = $fileService->upload($url, 'amr');
-        if ($ret['code'] !== 1) {
-            wei()->logger->alert('下载语音失败', $ret);
-        }
-
-        return $this->ret(['code' => -1, 'message' => $ret]);
-    }
 }

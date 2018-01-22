@@ -1,12 +1,12 @@
 define([
+  'comps/artTemplate/template.min',
   'comps/jPlayer/dist/jplayer/jquery.jplayer.min',
-  'css!comps/jPlayer/dist/skin/blue.monday/css/jplayer.blue.monday.min',
-  'comps/artTemplate/template.min'
-], function () {
+  'css!comps/jPlayer/dist/skin/blue.monday/css/jplayer.blue.monday.min'
+], function (template) {
   template.helper('$', $);
 
   var Voices = function () {
-
+    // do nothing.
   };
 
   $.extend(Voices.prototype, {
@@ -38,19 +38,19 @@ define([
     init: function (options) {
       $.extend(this, options);
 
-      var self = this;
-      self.wx.load(function () {
+      var that = this;
+      that.wx.load(function () {
         var isRecord = false;
-        self.$container.on('click', '.js-start-voice-record', function (e) {
+        that.$container.on('click', '.js-start-voice-record', function () {
           if (!isRecord) {
-            self.wx.startRecord();
+            that.wx.startRecord();
             $('.js-start-voice-record .start-record-icon').css('color', '#1EB8D0');
             isRecord = true;
 
           } else {
-            self.wx.stopRecord({
+            that.wx.stopRecord({
               success: function (res) {
-                self.syncUpload(self, res.localId);
+                that.syncUpload(that, res.localId);
               }
             });
 
@@ -60,14 +60,14 @@ define([
         });
 
         // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-        self.wx.onVoiceRecordEnd({
+        that.wx.onVoiceRecordEnd({
           complete: function (res) {
             $('.js-start-voice-record .start-record-icon').css('color', '#D9D9D9');
-            self.syncUpload(self, res.localId);
+            that.syncUpload(that, res.localId);
           }
         });
 
-        self.$container.on('click', '.js-delete-voice', function (e) {
+        that.$container.on('click', '.js-delete-voice', function (e) {
           var item = $(this).parent().parent();
           $.confirm('确定删除该录音吗？', function (result) {
             if (result) {
@@ -79,8 +79,8 @@ define([
       });
 
       // 渲染已有的图片
-      $.each(self.voices, function (i, voice) {
-        self.htmlAppend(self, i, voice);
+      $.each(that.voices, function (i, voice) {
+        that.htmlAppend(that, i, voice);
       });
     },
 
@@ -89,7 +89,10 @@ define([
      */
     htmlAppend: function (self, i, url) {
       var htmlTpl = template.compile($('#voice-cell-tpl').html());
-      self.$container.find('.js-upload-cells').prepend(htmlTpl({url: url, index: i}));
+      self.$container.find('.js-upload-cells').prepend(htmlTpl({
+        url: url,
+        index: i
+      }));
 
       var stream = {
         mp3: url
@@ -106,7 +109,7 @@ define([
         useStateClassSkin: true,
         autoBlur: false,
         keyEnabled: true,
-        ready: function (event) {
+        ready: function () {
           ready = true;
           $(this).jPlayer('setMedia', stream);
         },
@@ -155,7 +158,7 @@ define([
           serverId: serverId
         },
         success: function (ret) {
-          if (ret.code == 1) {
+          if (ret.code === 1) {
             self.htmlAppend(self, 0, ret.url);
           }
           $.msg(ret);

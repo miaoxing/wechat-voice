@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'voice-iconfont';
-  src: url('//at.alicdn.com/t/font_1473250561_1627147.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1473250561_1627147.eot'); /* IE9 */
   src: url('//at.alicdn.com/t/font_1473250561_1627147.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_1473250561_1627147.woff') format('woff'), url('//at.alicdn.com/t/font_1473250561_1627147.ttf') format('truetype'), url('//at.alicdn.com/t/font_1473250561_1627147.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
@@ -35,8 +35,7 @@
   float: left;
   width: 80px;
   height: 80px;
-  margin: 5px 10px 5px 0px;
-  display: inline-block;
+  margin: 5px 10px 5px 0;
 }
 
 .delete-voice {
@@ -57,7 +56,7 @@
   font-size: 80px;
   line-height: 90px;
   float: left;
-  margin: 5px 10px 10px 0px;
+  margin: 5px 10px 10px 0;
 }
 
 .wx-upload-voice-help {

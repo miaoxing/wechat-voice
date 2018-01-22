@@ -1,11 +1,15 @@
 <?= $block('css') ?>
+<!-- htmllint tag-bans="false" -->
 <style>
   .admin-voice-audio {
-    margin: 5px 10px 5px 0px;
+    margin: 5px 10px 5px 0;
   }
 </style>
+<!-- htmllint tag-bans="$previous" -->
 <?= $block->end() ?>
 
+<!-- htmllint preset="none" -->
+<!-- htmllint tag-name-match="false" -->
 <div class="form-group">
   <label class="col-sm-2 control-label">语音</label>
 
