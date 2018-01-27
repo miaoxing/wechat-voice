@@ -1,4 +1,4 @@
-<?= $block('css') ?>
+<?= $block->css() ?>
 <!-- htmllint tag-bans="false" -->
 <style>
   .admin-voice-audio {
