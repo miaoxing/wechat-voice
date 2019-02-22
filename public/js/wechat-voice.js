@@ -3,7 +3,6 @@ define([
   'comps/jPlayer/dist/jplayer/jquery.jplayer.min',
   'css!comps/jPlayer/dist/skin/blue.monday/css/jplayer.blue.monday.min'
 ], function (template) {
-  template.helper('$', $);
 
   var Voices = function () {
     // do nothing.
